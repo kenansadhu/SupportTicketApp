@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Support Ticket History</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User Category</th>
+      <th>User Email</th>
+      <th>Problem Type</th>
+      <th>Description</th>
+      <th>Timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ticket in tickets %}
+    <tr>
+      <td>{{ ticket.id }}</td>
+      <td>{{ ticket.user_category }}</td>
+      <td>{{ ticket.user_email }}</td>
+      <td>{{ ticket.problem_type }}</td>
+      <td>{{ ticket.description }}</td>
+      <td>{{ ticket.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

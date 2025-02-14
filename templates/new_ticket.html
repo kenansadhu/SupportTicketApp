@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Log a New Support Ticket</h2>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.user_category.label(class="form-label") }}
+    {{ form.user_category(class="form-select") }}
+  </div>
+  <div class="mb-3">
+    {{ form.user_email.label(class="form-label") }}
+    {{ form.user_email(class="form-control", placeholder="Enter user's email") }}
+  </div>
+  <div class="mb-3">
+    {{ form.problem_type.label(class="form-label") }}
+    {{ form.problem_type(class="form-select") }}
+  </div>
+  <div class="mb-3">
+    {{ form.description.label(class="form-label") }}
+    {{ form.description(class="form-control", rows="5", placeholder="Describe the issue") }}
+  </div>
+  <button type="submit" class="btn btn-success">{{ form.submit.label.text }}</button>
+</form>
+{% endblock %}
